@@ -10,11 +10,6 @@ import {
   AnimatedLogo
 } from './styles';
 
-const MemoPlanetComponent = React.memo(Planet);
-const MemoHeaderComponent = React.memo(Header)
-const MemoAnimatedLogo = React.memo(AnimatedLogo);
-const MemoInput = React.memo(Input);
-
 const MOODS = [
   'sad', 'shocked', 'happy', 'blissful', 'lovestruck', 'excited'
 ];
@@ -39,19 +34,19 @@ class App extends Component {
 
     return (
       <Container>
-        <MemoHeaderComponent as='h1' textAlign='center'>
-          React Memo <MemoAnimatedLogo src={logo} onClick={this.changeMood} />
-        </MemoHeaderComponent>
+        <Header as='h1' textAlign='center'>
+          React Memo <AnimatedLogo src={logo} onClick={this.changeMood} />
+        </Header>
 
-        <MemoInput
+        <Input
           fluid
           placeholder='Use this to update state'
           onChange={this.handleChange}
           value={value}
         />
 
-        <MemoHeaderComponent>Mood:</MemoHeaderComponent>
-        <MemoPlanetComponent
+        <Header>Mood:</Header>
+        <Planet
           size={220}
           mood={MOODS[currentIndex]}
           color="#FCCB7E"
